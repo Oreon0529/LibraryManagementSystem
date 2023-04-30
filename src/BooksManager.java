@@ -66,7 +66,7 @@ public class BooksManager {
 						System.out.print("Lending Date:");
 						book.date = input.next();
 					} else
-						continue;
+                        continue;
 				}
 			}
 		}
