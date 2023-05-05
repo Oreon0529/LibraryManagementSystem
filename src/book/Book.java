@@ -1,13 +1,19 @@
+package book;
 import java.util.Scanner;
 
 public class Book {
 
 	protected BookKind kind = BookKind.Academic;
+	protected int userId;
 	protected String title;
 	protected int id;
 	protected String date;
 
 	public Book() {
+	}
+	
+	public Book(BookKind kind) {
+		this.kind = kind;
 	}
 
 	public Book(String title, int id) {
@@ -15,7 +21,9 @@ public class Book {
 		this.id = id;
 	}
 
-	public Book(String title, int id, String date) {
+	public Book(BookKind kind, int userId, String title, int id, String date) {
+		this.kind = kind;
+		this.userId = userId;
 		this.title = title;
 		this.id = id;
 		this.date = date;
@@ -52,13 +60,42 @@ public class Book {
 	public void setDate(String date) {
 		this.date = date;
 	}
-
+	
+	public int getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
 	public void printInfo() {
-		System.out.println(" title: " + title + " id: " + id + " date: " + date);
+		String skind = "none";
+		switch(this.kind) {
+		case Academic:
+			skind = "Academic";
+			break;
+		case Children:
+			skind = "Children";
+			break;
+		case Novel:
+			skind = "Novel";
+			break;
+		case Nonfiction:
+			skind = "Nonfiction";
+			break;
+		default:
+			
+		}
+		System.out.println(" Kind: "+ skind +" User Id : "+ userId +" Title: " + title + " Book Id: " + id + " Date: " + date);
 	}
 
 	public void getUserInput(Scanner input) {
-		System.out.print("title: ");
+		System.out.print("User Id: ");
+		int userId = input.nextInt();
+		this.setUserId(userId);
+		
+		System.out.print("Title: ");
 		String title = input.next();
 		this.setTitle(title);
 
@@ -71,4 +108,6 @@ public class Book {
 		this.setDate(date);
 
 	}
+	
+	
 }
