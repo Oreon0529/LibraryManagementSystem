@@ -2,9 +2,9 @@ package book;
 
 import java.util.Scanner;
 
-public class AcademicBook extends Book {
+public class NovelBook extends Book {
 
-	public AcademicBook(BookKind kind) {
+	public NovelBook(BookKind kind) {
 		super(kind);
 	}
 

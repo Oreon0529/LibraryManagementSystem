@@ -2,9 +2,9 @@ package book;
 
 import java.util.Scanner;
 
-public class AcademicBook extends Book {
+public class NonfictionBook extends Book {
 
-	public AcademicBook(BookKind kind) {
+	public NonfictionBook(BookKind kind) {
 		super(kind);
 	}
 
@@ -19,5 +19,5 @@ public class AcademicBook extends Book {
 		String skind = getKindString();
 		System.out.println(
 				" Kind: " + skind + " User Id : " + userId + " Title: " + title + " Book Id: " + id + " Date: " + date);
-	}
+    }
 }

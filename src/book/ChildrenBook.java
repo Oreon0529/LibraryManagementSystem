@@ -2,64 +2,58 @@ package book;
 
 import java.util.Scanner;
 
-public class ChildrenBook extends Book implements BookInput {
+public class ChildrenBook extends Book {
 
-   public ChildrenBook(BookKind kind) {
-      super(kind);
-   }
+	public ChildrenBook(BookKind kind) {
+		super(kind);
+	}
 
-   public void getUserInput(Scanner input) {
-      System.out.print("Title: ");
-      String title = input.next();
-      this.setTitle(title);
+	public void getUserInput(Scanner input) {
+		char answer = 'x';
+		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
 
-      char answer = 'x';
-      while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
+			System.out.print("Do you have a parents' User Id? (Y/N)");
+			answer = input.next().charAt(0);
+			if (answer == 'y' || answer == 'Y') {
+				System.out.print("Parents' User Id: ");
+				int userId = input.nextInt();
+				this.setUserId(userId);
+				break;
+			} else if (answer == 'n' || answer == 'N') {
+				this.setId(0);
+				break;
+			} else {
+			}
+		}
+		setBookID(input);
+		setBookTitle(input);
+		setBookDate(input);
+	}
 
-         System.out.print("Do you have a parents' User Id? (Y/N)");
-         answer = input.next().charAt(0);
-         if (answer == 'y' || answer == 'Y') {
-            System.out.print("Parents' User Id: ");
-            int userId = input.nextInt();
-            this.setUserId(userId);
-            break;
-         } else if (answer == 'n' || answer == 'N') {
-            this.setId(0);
-            break;
-         } else {
-
-         }
-      }
-
-      System.out.print("Book Id: ");
-      int id = input.nextInt();
-      this.setId(id);
-
-      System.out.print("Lending date: ");
-      String date = input.next();
-      this.setDate(date);
-   }
-
-   public void printInfo() {
-      String skind = "none";
-      switch (this.kind) {
-      case Academic:
-         skind = "Academic";
-         break;
-      case Children:
-         skind = "Children";
-         break;
-      case Novel:
-         skind = "Novel";
-         break;
-      case Nonfiction:
-         skind = "Nonfiction";
-         break;
-      default:
-
-      }
-      System.out.println(" Kind: " + skind + " Parents' User Id : " + userId + " Title: " + title + " Book Id: " + id
-            + " Date: " + date);
-   }
+    public void printInfo() {
+		String skind = getKindString();
+		System.out.println(" Kind: " + skind + " Parents' User Id : " + userId + " Title: " + title + " Book Id: " + id
+				+ " Date: " + date);
+	}
+   
+	public String getKindString() {
+		String skind = "none";
+		switch (this.kind) {
+	      	case Academic:
+	      		skind = "Academic";
+	      		break;
+	      	case Children:
+	      		skind = "Children";
+	      		break;
+	      	case Novel:
+	      		skind = "Novel";
+	      		break;
+	      	case Nonfiction:
+	      		skind = "Nonfiction";
+	      		break;
+	      	default:
+	      	}
+	      	return skind;
+	}
 
 }
