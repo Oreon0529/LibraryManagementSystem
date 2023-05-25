@@ -1,11 +1,13 @@
 package book;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.DateFormatException;
 
-public abstract class Book implements BookInput{
+public abstract class Book implements BookInput, Serializable {
 
+    private static final long serialVersionUID = -5774830619528242416L;
 	protected BookKind kind = BookKind.Academic;
 	protected int userId;
 	protected String title;
