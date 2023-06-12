@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class ChildrenBook extends Book {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ChildrenBook(BookKind kind) {
 		super(kind);
 	}

@@ -7,6 +7,13 @@ import exception.DateFormatException;
 public interface BookInput {
 
    public int getId();
+   
+  	public int getUserId();
+
+   
+  	public String getDate();
+   
+   public String getTitle();
 
    public void setTitle(String title);
 
